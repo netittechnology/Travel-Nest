@@ -7,7 +7,7 @@ import { useFloatingButtons } from "../context/FloatingButtonContext";
 export default function WhatsAppFAB() {
   const location = useLocation();
   const context = useFloatingButtons();
-  const phone = "94707890663";
+  const phone = "94771234567";
 
   const [tourTitle, setTourTitle] = useState("");
 
@@ -77,7 +77,7 @@ export default function WhatsAppFAB() {
       {/* CHAT CARD */}
       {isWhatsAppOpen && (
         <div className="mb-4 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <div className="bg-green-500 p-4 text-white flex justify-between items-center">
+          <div className="bg-[#024c4e] p-4 text-white flex justify-between items-center">
             <div>
               <h3 className="font-semibold text-lg">Chat with Travel Expert</h3>
               <p className="text-sm opacity-90">
@@ -100,14 +100,14 @@ export default function WhatsAppFAB() {
           <div className="p-3 space-y-2">
             <button
               onClick={() => openWhatsApp(getMessage("inquiry"))}
-              className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-lg"
+              className="w-full bg-[#02878b] hover:bg-[#305758] text-white py-2 rounded-lg"
             >
               General Inquiry
             </button>
 
             <button
               onClick={() => openWhatsApp(getMessage("details"))}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg"
+              className="w-full bg-[#0b2b3a] hover:bg-[#305758] text-white py-2 rounded-lg"
             >
               Request Tour Details
             </button>

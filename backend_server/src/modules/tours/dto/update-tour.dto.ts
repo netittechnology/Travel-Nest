@@ -1,5 +1,6 @@
 import { Transform, Type } from "class-transformer";
-import { Allow, ArrayMinSize, IsArray, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
+import { Allow, ArrayMinSize, IsArray, IsOptional, IsString, MaxLength, ValidateNested, IsEnum } from 'class-validator';
+import { TourType } from '../enums/tour-type.enum';
 
 class ItineraryDayDto {
     @IsOptional()
@@ -42,6 +43,10 @@ export class UpdateTourDto {
     @IsOptional()
     @MaxLength(255)
     duration?: string;
+    
+    @IsOptional()
+    @IsEnum(TourType)
+    tour_type?: TourType;
 
     @IsArray()
     @IsOptional()

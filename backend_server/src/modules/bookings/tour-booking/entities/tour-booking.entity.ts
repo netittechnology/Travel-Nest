@@ -3,9 +3,9 @@ import { Tour } from "../../../tours/entities/tour.entity";
 
 // booking-status.enum.ts
 export enum BookingStatus {
-    PENDING   = 'PENDING',
+    PENDING = 'PENDING',
     CONFIRMED = 'CONFIRMED',
-    DECLINED  = 'DECLINED',
+    DECLINED = 'DECLINED',
     COMPLETED = 'COMPLETED',
 };
 
@@ -42,11 +42,24 @@ export class TourBooking {
     @Column({ type: 'int', default: 0 })
     children_count!: number;
 
-    @Column({ type: 'decimal', precision: 10, scale: 7 })
-    pickup_location_latitude!: number;
+    @Column({ type: 'varchar', length: 500, nullable: true })
+    pickup_location?: string;
 
-    @Column({ type: 'decimal', precision: 10, scale: 7 })
-    pickup_location_longitude!: number;
+    @Column({
+        type: 'decimal',
+        precision: 10,
+        scale: 7,
+        nullable: true,
+    })
+    pickup_location_latitude?: number;
+
+    @Column({
+        type: 'decimal',
+        precision: 10,
+        scale: 7,
+        nullable: true,
+    })
+    pickup_location_longitude?: number;
 
     @Column({ type: 'text' })
     message?: string;

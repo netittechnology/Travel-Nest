@@ -16,14 +16,14 @@ import ImageDropzone from "./ImageDropzone";
 export default function TourForm({
   title,
   setTitle,
-  slug,
-  setSlug,
   location,
   setLocation,
   description,
   setDescription,
   duration,
   setDuration,
+  tourType,
+  setTourType,
   itineraryDays,
   setItineraryDays,
   includes,
@@ -96,24 +96,9 @@ export default function TourForm({
                 />
               </div>
 
-              {/* SLUG */}
-              <div>
-                <label className="mb-2 block text-sm font-semibold text-[#172d35]">
-                  Slug
-                </label>
-
-                <input
-                  value={slug}
-                  onChange={(e) => setSlug(e.target.value)}
-                  placeholder="url-friendly-slug"
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-[#172d35] outline-none transition-all placeholder:text-slate-400 focus:border-[#172d35] focus:bg-white focus:ring-4 focus:ring-[#172d35]/10"
-                />
-              </div>
-
               {/* LOCATION */}
-              <div>
-                <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#172d35]">
-                  <MapPin size={15} />
+              <div className="md:col-span-2">
+                <label className="mb-2 block text-sm font-semibold text-[#172d35]">
                   Location
                 </label>
 
@@ -143,7 +128,6 @@ export default function TourForm({
               {/* DURATION */}
               <div>
                 <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#172d35]">
-                  <Clock3 size={15} />
                   Duration
                 </label>
 
@@ -156,6 +140,27 @@ export default function TourForm({
               </div>
             </div>
           </section>
+
+          {/* TOUR TYPE */}
+          <div>
+            <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-[#172d35]">
+              <MapPinned size={15} />
+              Tour Type
+            </label>
+
+            <select
+              value={tourType}
+              onChange={(e) => setTourType(e.target.value)}
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-[#172d35] outline-none transition-all focus:border-[#172d35] focus:bg-white focus:ring-4 focus:ring-[#172d35]/10"
+            >
+              <option value="DAY_TOUR">Day Tour</option>
+              <option value="ROUND_TOUR">Round Tour</option>
+            </select>
+
+            <p className="mt-1.5 text-xs text-slate-400">
+              Select whether this is a day tour or a round tour.
+            </p>
+          </div>
 
           {/* ITINERARY DAYS */}
           <section className="border-t border-slate-100 pt-8">

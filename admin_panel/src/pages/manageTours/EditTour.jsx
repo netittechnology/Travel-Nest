@@ -11,13 +11,14 @@ export default function EditDayTour() {
 
   const [state, setState] = useState({
     title: "",
-    slug: "",
     location: "",
     description: "",
     duration: "",
+    tourType: "DAY_TOUR",
     includes: "",
     highlights: "",
   });
+
   const [itineraryDays, setItineraryDays] = useState([]);
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -36,13 +37,14 @@ export default function EditDayTour() {
 
       setState({
         title: t.title || "",
-        slug: t.slug || "",
         location: t.location || "",
         description: t.description || "",
         duration: t.duration || "",
+        tourType: t.tour_type || "DAY_TOUR",
         includes: t.includes?.join(", ") || "",
         highlights: t.highlights?.join(", ") || "",
       });
+
       setItineraryDays(t.itinerary_days || []);
       setPreview(t.image?.url || null);
     } catch {
@@ -64,15 +66,23 @@ export default function EditDayTour() {
     if (state.location) formData.append("location", state.location);
     if (state.description) formData.append("description", state.description);
     if (state.duration) formData.append("duration", state.duration);
-
+    if (state.tourType) {
+      formData.append("tour_type", state.tourType);
+    }
     if (state.includes) formData.append("includes", state.includes);
     if (state.highlights) formData.append("highlights", state.highlights);
 
     if (file) formData.append("file", file);
     itineraryDays.forEach((day, index) => {
-      formData.append(`itinerary_days[${index}][day]`, day.day || `Day ${index + 1}`);
+      formData.append(
+        `itinerary_days[${index}][day]`,
+        day.day || `Day ${index + 1}`
+      );
       formData.append(`itinerary_days[${index}][title]`, day.title || "");
-      formData.append(`itinerary_days[${index}][description]`, day.description || "");
+      formData.append(
+        `itinerary_days[${index}][description]`,
+        day.description || ""
+      );
       formData.append(`itinerary_days[${index}][details]`, day.details || "");
       formData.append(`itinerary_days[${index}][location]`, day.location || "");
     });
@@ -95,27 +105,28 @@ export default function EditDayTour() {
         className="flex items-center gap-2 text-sm font-medium text-[#0f2f1f] hover:text-green-700 mb-4"
       >
         <ArrowLeft size={18} />
-        Back to Itineraries
+        Back to Tours
       </button>
 
       <TourForm
         {...state}
         setTitle={(v) => handleChange("title", v)}
-        setSlug={(v) => handleChange("slug", v)}
         setLocation={(v) => handleChange("location", v)}
         setDescription={(v) => handleChange("description", v)}
         setDuration={(v) => handleChange("duration", v)}
+        tourType={state.tourType}
+        setTourType={(v) => handleChange("tourType", v)}
         setIncludes={(v) => handleChange("includes", v)}
         setHighlights={(v) => handleChange("highlights", v)}
         itineraryDays={itineraryDays}
-  setItineraryDays={setItineraryDays}
+        setItineraryDays={setItineraryDays}
         file={file}
         setFile={setFile}
         preview={preview}
         setPreview={setPreview}
         onSubmit={handleSubmit}
         loading={loading}
-        buttonText="Update Itinerary"
+        buttonText="Update Tour"
       />
     </div>
   );

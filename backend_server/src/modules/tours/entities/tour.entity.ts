@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, Index, JoinColumn, ManyToOne, PrimaryGeneratedColumn, RelationId, UpdateDateColumn } from "typeorm";
 import { Files } from "../../file-upload/entities/files.entity";
+import { TourType } from '../enums/tour-type.enum';
 
 @Entity('tours')
 @Index(['is_available'])
@@ -47,6 +48,13 @@ export class Tour {
         location: string;
     }[];
 
+    @Column({
+        type: 'enum',
+        enum: TourType,
+        default: TourType.DAY_TOUR,
+    })
+    tour_type!: TourType;
+    
     @Column({ type: 'boolean', default: true })
     is_available?: boolean;
 

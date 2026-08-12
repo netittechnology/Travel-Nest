@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Hero from "../assets/header/experience-hero.webp";
+import Hero from "../assets/header/experience-hero.jpg";
 import { axiosInstance } from "../lib/axiosInstance";
 import { Tag } from "lucide-react";
 import { Helmet } from "react-helmet-async";

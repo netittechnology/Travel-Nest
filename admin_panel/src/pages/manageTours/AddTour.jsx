@@ -8,10 +8,10 @@ import { ArrowLeft } from "lucide-react";
 export default function AddTour() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const [slug, setSlug] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("");
+  const [tourType, setTourType] = useState("DAY_TOUR");
   const [itineraryDays, setItineraryDays] = useState([]);
   const [includes, setIncludes] = useState("");
   const [highlights, setHighlights] = useState("");
@@ -30,10 +30,17 @@ export default function AddTour() {
     formData.append("location", location);
     formData.append("description", description);
     formData.append("duration", duration);
+    formData.append("tour_type", tourType);
     itineraryDays.forEach((day, index) => {
-      formData.append(`itinerary_days[${index}][day]`, day.day || `Day ${index + 1}`);
+      formData.append(
+        `itinerary_days[${index}][day]`,
+        day.day || `Day ${index + 1}`
+      );
       formData.append(`itinerary_days[${index}][title]`, day.title || "");
-      formData.append(`itinerary_days[${index}][description]`, day.description || "");
+      formData.append(
+        `itinerary_days[${index}][description]`,
+        day.description || ""
+      );
       formData.append(`itinerary_days[${index}][details]`, day.details || "");
       formData.append(`itinerary_days[${index}][location]`, day.location || "");
     });
@@ -41,14 +48,14 @@ export default function AddTour() {
     if (includes.trim()) {
       formData.append(
         "includes",
-        includes.split(",").map(i => i.trim())
+        includes.split(",").map((i) => i.trim())
       );
     }
-    
+
     if (highlights.trim()) {
       formData.append(
         "highlights",
-        highlights.split(",").map(h => h.trim())
+        highlights.split(",").map((h) => h.trim())
       );
     }
 
@@ -75,22 +82,22 @@ export default function AddTour() {
         className="flex items-center gap-2 text-sm font-medium text-[#0f2f1f] hover:text-green-700 mb-4"
       >
         <ArrowLeft size={18} />
-        Back to Itineraries
+        Back to Tours
       </button>
 
       <TourForm
         title={title}
         setTitle={setTitle}
-        slug={slug}
-        setSlug={setSlug}
         location={location}
         setLocation={setLocation}
         description={description}
         setDescription={setDescription}
         duration={duration}
         setDuration={setDuration}
+        tourType={tourType}
+        setTourType={setTourType}
         itineraryDays={itineraryDays}
-setItineraryDays={setItineraryDays}
+        setItineraryDays={setItineraryDays}
         includes={includes}
         setIncludes={setIncludes}
         highlights={highlights}
@@ -101,7 +108,7 @@ setItineraryDays={setItineraryDays}
         setPreview={setPreview}
         onSubmit={handleSubmit}
         loading={loading}
-        buttonText="Add Itinerary"
+        buttonText="Add Tour"
       />
     </div>
   );

@@ -49,7 +49,6 @@ export default function App() {
       <AppToast />
       <ScrollToTop />
       <AnimatedRoutes location={location}>
-
         {/* ================= MAIN SITE ================= */}
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
@@ -59,6 +58,14 @@ export default function App() {
           <Route path="/hotels" element={<Hotels />} />
           <Route path="/hotels/:id" element={<HotelDetails />} />
           <Route path="/itineraries" element={<Itineraries />} />
+          <Route
+            path="/itineraries/day-tours"
+            element={<Itineraries tourType="DAY_TOUR" />}
+          />
+          <Route
+            path="/itineraries/round-tours"
+            element={<Itineraries tourType="ROUND_TOUR" />}
+          />
           <Route path="/itinerary/:slug" element={<ItineraryDetails />} />
           <Route path="/blog" element={<Blogs />} />
           <Route path="/blog/:slug" element={<BlogDetails />} />

@@ -12,6 +12,7 @@ import {
   ChevronRight,
   MapPin,
   Compass,
+  Tags,
 } from "lucide-react";
 import { axiosInstance } from "../../lib/axiosInstance";
 import { confirmAction } from "../../lib/confirmAction";
@@ -22,10 +23,7 @@ export default function TourList() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    fetchData();
-  }, [page, search]);
+  const [tourType, setTourType] = useState("");
 
   const fetchData = async () => {
     try {
@@ -36,6 +34,7 @@ export default function TourList() {
           page,
           limit: 10,
           search_term: search || undefined,
+          tour_type: tourType || undefined,
         },
       });
 
@@ -50,6 +49,10 @@ export default function TourList() {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, [page, search, tourType]);
 
   const handleDelete = async (id) => {
     const ok = await confirmAction({ title: "Delete itinerary?" });
@@ -115,6 +118,62 @@ export default function TourList() {
           </div>
         </div>
 
+        {/* TOUR TYPE FILTER */}
+        <div className="flex justify-center">
+          <div className="inline-flex items-center gap-1 rounded-xl border border-slate-200 bg-white p-1.5 shadow-sm">
+            {/* ALL */}
+            <button
+              type="button"
+              onClick={() => {
+                setTourType("");
+                setPage(1);
+              }}
+              className={`inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
+                tourType === ""
+                  ? "bg-[#172d35] text-white shadow-sm"
+                  : "text-slate-500 hover:bg-slate-100 hover:text-[#172d35]"
+              }`}
+            >
+              <Compass size={16} strokeWidth={2} />
+              All Tours
+            </button>
+
+            {/* DAY TOURS */}
+            <button
+              type="button"
+              onClick={() => {
+                setTourType("DAY_TOUR");
+                setPage(1);
+              }}
+              className={`inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
+                tourType === "DAY_TOUR"
+                  ? "bg-[#172d35] text-white shadow-sm"
+                  : "text-slate-500 hover:bg-slate-100 hover:text-[#172d35]"
+              }`}
+            >
+              <Tags size={16} strokeWidth={2} />
+              Day Tours
+            </button>
+
+            {/* ROUND TOURS */}
+            <button
+              type="button"
+              onClick={() => {
+                setTourType("ROUND_TOUR");
+                setPage(1);
+              }}
+              className={`inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
+                tourType === "ROUND_TOUR"
+                  ? "bg-[#172d35] text-white shadow-sm"
+                  : "text-slate-500 hover:bg-slate-100 hover:text-[#172d35]"
+              }`}
+            >
+              <MapPin size={16} strokeWidth={2} />
+              Round Tours
+            </button>
+          </div>
+        </div>
+
         {/* TABLE CARD */}
         <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
           <div className="border-b border-slate-100 px-5 py-4">
@@ -152,6 +211,10 @@ export default function TourList() {
                   </th>
 
                   <th className="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wider">
+                    Type
+                  </th>
+
+                  <th className="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wider">
                     Status
                   </th>
 
@@ -164,7 +227,7 @@ export default function TourList() {
               <tbody className="divide-y divide-slate-100">
                 {loading ? (
                   <tr>
-                    <td colSpan="5" className="px-5 py-16 text-center">
+                    <td colSpan="6" className="px-5 py-16 text-center">
                       <div className="flex flex-col items-center justify-center">
                         <div className="mb-3 h-8 w-8 animate-spin rounded-full border-2 border-slate-200 border-t-[#172d35]" />
 
@@ -214,6 +277,23 @@ export default function TourList() {
                         </div>
                       </td>
 
+                      {/* TYPE */}
+                      <td className="px-5 py-4">
+                        <span
+                          className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${
+                            t.tour_type === "ROUND_TOUR"
+                              ? "bg-purple-50 text-purple-700 ring-1 ring-purple-200"
+                              : "bg-sky-50 text-sky-700 ring-1 ring-sky-200"
+                          }`}
+                        >
+                          <Tags size={13} />
+
+                          {t.tour_type === "ROUND_TOUR"
+                            ? "Round Tour"
+                            : "Day Tour"}
+                        </span>
+                      </td>
+
                       {/* STATUS */}
                       <td className="px-5 py-4">
                         <span
@@ -225,9 +305,7 @@ export default function TourList() {
                         >
                           <span
                             className={`h-1.5 w-1.5 rounded-full ${
-                              t.is_available
-                                ? "bg-emerald-500"
-                                : "bg-slate-400"
+                              t.is_available ? "bg-emerald-500" : "bg-slate-400"
                             }`}
                           />
 
@@ -293,7 +371,7 @@ export default function TourList() {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="5" className="px-5 py-16 text-center">
+                    <td colSpan="6" className="px-5 py-16 text-center">
                       <div className="mx-auto flex max-w-sm flex-col items-center">
                         <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-400">
                           <Compass size={22} />
@@ -318,11 +396,8 @@ export default function TourList() {
         {/* PAGINATION */}
         <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm sm:flex-row">
           <p className="text-sm text-slate-500">
-            Page{" "}
-            <span className="font-semibold text-[#172d35]">{page}</span> of{" "}
-            <span className="font-semibold text-[#172d35]">
-              {totalPages}
-            </span>
+            Page <span className="font-semibold text-[#172d35]">{page}</span> of{" "}
+            <span className="font-semibold text-[#172d35]">{totalPages}</span>
           </p>
 
           <div className="flex items-center gap-2">

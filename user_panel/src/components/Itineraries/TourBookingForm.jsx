@@ -16,8 +16,12 @@ export default function TourBookingForm({ open, onClose, tour }) {
     booking_time: "08:00",
     adult_count: 1,
     children_count: 0,
+
+    // Pickup location
+    pickup_location: "",
     pickup_location_latitude: "",
     pickup_location_longitude: "",
+
     message: "",
     is_agree: false,
   };
@@ -36,17 +40,32 @@ export default function TourBookingForm({ open, onClose, tour }) {
   };
 
   const isValid = () => {
-    if (!form.full_name || form.full_name.length < 3) return false;
+    if (!form.full_name || form.full_name.trim().length < 3) {
+      return false;
+    }
 
-    if (!form.email.includes("@")) return false;
+    if (!form.email.includes("@")) {
+      return false;
+    }
 
-    if (!form.phone.match(/^[+]?[0-9]{10,15}$/)) return false;
+    if (!form.phone.match(/^[+]?[0-9]{10,15}$/)) {
+      return false;
+    }
 
-    if (!form.booking_date) return false;
+    if (!form.booking_date) {
+      return false;
+    }
 
-    if (!form.booking_time) return false;
+    if (!form.booking_time) {
+      return false;
+    }
 
-    if (!form.is_agree) return false;
+    if (!form.is_agree) {
+      return false;
+    }
+
+    // Coordinates are OPTIONAL.
+    // No validation is required for latitude/longitude.
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -58,26 +77,29 @@ export default function TourBookingForm({ open, onClose, tour }) {
       return false;
     }
 
-    if (
-      form.pickup_location_latitude === "" ||
-      form.pickup_location_longitude === ""
-    ) {
-      return false;
-    }
-
     return true;
   };
 
   const generateWhatsAppMessage = () => {
-    return `Hello, I just booked a tour 
+    const coordinates =
+      form.pickup_location_latitude && form.pickup_location_longitude
+        ? `${form.pickup_location_latitude}, ${form.pickup_location_longitude}`
+        : "Not provided";
+
+    return `Hello, I just booked a tour
+
 Name: ${form.full_name}
 Email: ${form.email}
 Phone: ${form.phone}
+
 Date: ${form.booking_date ? form.booking_date.toLocaleDateString("en-GB") : ""}
 Time: ${form.booking_time}
- Adults: ${form.adult_count}
+
+Adults: ${form.adult_count}
 Children: ${form.children_count}
-Location: ${form.pickup_location_latitude}, ${form.pickup_location_longitude}
+
+Pickup Location: ${form.pickup_location || "Not provided"}
+Coordinates: ${coordinates}
 
 Message: ${form.message || "N/A"}
 
@@ -85,8 +107,9 @@ Tour: ${tour?.title}`;
   };
 
   const openWhatsApp = () => {
-    const phoneNumber = "94707890663";
+    const phoneNumber = "94771234567";
     const text = generateWhatsAppMessage();
+
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`,
       "_blank"
@@ -108,21 +131,40 @@ Tour: ${tour?.title}`;
     try {
       setLoading(true);
 
-      await axiosInstance.post(`/tour-booking/${tour.id}`, {
-        full_name: form.full_name,
-        email: form.email,
+      const payload = {
+        full_name: form.full_name.trim(),
+        email: form.email.trim(),
         phone: form.phone,
+
         booking_date: form.booking_date
           ? form.booking_date.toISOString().split("T")[0]
           : "",
+
         booking_time: form.booking_time,
         adult_count: Number(form.adult_count),
         children_count: Number(form.children_count),
-        pickup_location_latitude: parseFloat(form.pickup_location_latitude),
-        pickup_location_longitude: parseFloat(form.pickup_location_longitude),
+
+        pickup_location: form.pickup_location.trim(),
+
         message: form.message,
         is_agree: Boolean(form.is_agree),
-      });
+      };
+
+      // Only send latitude if provided
+      if (form.pickup_location_latitude !== "") {
+        payload.pickup_location_latitude = Number(
+          form.pickup_location_latitude
+        );
+      }
+
+      // Only send longitude if provided
+      if (form.pickup_location_longitude !== "") {
+        payload.pickup_location_longitude = Number(
+          form.pickup_location_longitude
+        );
+      }
+
+      await axiosInstance.post(`/tour-booking/${tour.id}`, payload);
 
       setMessage({
         type: "success",
@@ -131,7 +173,7 @@ Tour: ${tour?.title}`;
 
       setTimeout(() => {
         openWhatsApp();
-        setForm(initialState); // reset form
+        setForm(initialState);
         onClose();
       }, 1200);
     } catch (err) {
@@ -160,6 +202,7 @@ Tour: ${tour?.title}`;
           <h2 className="text-2xl font-bold text-gray-800">
             Book {tour?.title}
           </h2>
+
           <p className="text-sm text-gray-500">Fill your travel details</p>
         </div>
 
@@ -285,14 +328,36 @@ Tour: ${tour?.title}`;
               </div>
             </div>
 
-            {/* LOCATION */}
+            {/* PICKUP LOCATION */}
+            <div>
+              <label className="text-sm font-medium text-gray-700">
+                Pickup Location / Address
+              </label>
+
+              <input
+                name="pickup_location"
+                placeholder="Enter your hotel, address, or pickup location"
+                value={form.pickup_location}
+                onChange={handleChange}
+                className="w-full border px-3 py-2 rounded-lg mt-1 focus:ring-2 focus:ring-green-600"
+              />
+
+              <p className="text-xs text-gray-500 mt-1">
+                Example: Cinnamon Grand Colombo
+              </p>
+            </div>
+
+            {/* OPTIONAL COORDINATES */}
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="text-sm font-medium text-gray-700">
-                  Pickup Latitude
+                  Latitude
+                  <span className="text-gray-400"> (Optional)</span>
                 </label>
 
                 <input
+                  type="number"
+                  step="any"
                   name="pickup_location_latitude"
                   placeholder="Latitude"
                   value={form.pickup_location_latitude}
@@ -303,10 +368,13 @@ Tour: ${tour?.title}`;
 
               <div>
                 <label className="text-sm font-medium text-gray-700">
-                  Pickup Longitude
+                  Longitude
+                  <span className="text-gray-400"> (Optional)</span>
                 </label>
 
                 <input
+                  type="number"
+                  step="any"
                   name="pickup_location_longitude"
                   placeholder="Longitude"
                   value={form.pickup_location_longitude}
@@ -334,35 +402,35 @@ Tour: ${tour?.title}`;
 
             {/* TERMS */}
             <div className="mt-4">
-                <label className="flex items-center gap-3">
-              <input
-                type="checkbox"
-                name="is_agree"
-                checked={form.is_agree}
-                onChange={handleChange}
-              />
+              <label className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  name="is_agree"
+                  checked={form.is_agree}
+                  onChange={handleChange}
+                />
 
-              <span className="text-gray-700 text-sm">
-                I accept the{" "}
-                <a
-                  href="/terms-and-conditions"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 underline hover:text-blue-700"
-                >
-                  Terms and Conditions
-                </a>{" "}
-                and{" "}
-                <a
-                  href="/privacy-policy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 underline hover:text-blue-700"
-                >
-                  Privacy Policy
-                </a>
-              </span>
-            </label>
+                <span className="text-gray-700 text-sm">
+                  I accept the{" "}
+                  <a
+                    href="/terms-and-conditions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 underline hover:text-blue-700"
+                  >
+                    Terms and Conditions
+                  </a>{" "}
+                  and{" "}
+                  <a
+                    href="/privacy-policy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 underline hover:text-blue-700"
+                  >
+                    Privacy Policy
+                  </a>
+                </span>
+              </label>
             </div>
 
             {/* MESSAGE */}
@@ -380,6 +448,7 @@ Tour: ${tour?.title}`;
 
             {/* BUTTON */}
             <button
+              type="submit"
               disabled={loading}
               className="w-full bg-linear-to-r from-[#0f2f1f] to-[#184d35] text-white py-3 rounded-lg font-semibold hover:opacity-90 transition disabled:opacity-50 flex items-center justify-center gap-2"
             >

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import Hero from "../assets/header/day-hero.webp";
+import { useNavigate, useLocation } from "react-router-dom";
+import Hero from "../assets/header/tour-hero.webp";
+import DayHero from "../assets/header/day-hero.webp";
+import RoundHero from "../assets/header/round-hero.webp";
 import { axiosInstance } from "../lib/axiosInstance";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
@@ -48,7 +50,7 @@ function EmptyState() {
   );
 }
 
-export default function Itineraries() {
+export default function Itineraries({ tourType }) {
   const [showText, setShowText] = useState(false);
   const [tours, setTours] = useState([]);
   const [page, setPage] = useState(1);
@@ -59,6 +61,7 @@ export default function Itineraries() {
   const [debouncedSearch, setDebouncedSearch] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const t = setTimeout(() => setShowText(true), 200);
@@ -89,6 +92,7 @@ export default function Itineraries() {
           sort_order: sortType === "oldest" ? "ASC" : "DESC",
           is_available: true,
           search_term: debouncedSearch || undefined,
+          tour_type: tourType || undefined,
         },
       });
 
@@ -115,23 +119,61 @@ export default function Itineraries() {
     fetchTours();
   }, [page, sortType, debouncedSearch]);
 
+  const heroImage =
+    tourType === "DAY_TOUR"
+      ? DayHero
+      : tourType === "ROUND_TOUR"
+      ? RoundHero
+      : Hero;
+
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#fafcfb]">
       <Helmet>
-        <title>Sri Lanka Tour Itineraries | Travel Nest</title>
+        <title>
+          {tourType === "DAY_TOUR"
+            ? "Sri Lanka Day Tours | Travel Nest"
+            : tourType === "ROUND_TOUR"
+            ? "Sri Lanka Round Tours | Travel Nest"
+            : "Sri Lanka Tour Itineraries | Travel Nest"}
+        </title>
 
         <meta
           name="description"
-          content="Explore curated Sri Lanka travel itineraries for 1-day, 3-day, and custom tours."
+          content={
+            tourType === "DAY_TOUR"
+              ? "Explore curated one-day tours across Sri Lanka."
+              : tourType === "ROUND_TOUR"
+              ? "Discover multi-day round tours across Sri Lanka."
+              : "Explore curated Sri Lanka travel itineraries."
+          }
         />
 
-        <link rel="canonical" href="https://travelnest.com/itineraries" />
+        <link
+          rel="canonical"
+          href={
+            tourType === "DAY_TOUR"
+              ? "https://travelnest.com/itineraries/day-tours"
+              : tourType === "ROUND_TOUR"
+              ? "https://travelnest.com/itineraries/round-tours"
+              : "https://travelnest.com/itineraries"
+          }
+        />
       </Helmet>
 
       {/* HERO */}
       <section className="relative w-full min-h-dvh flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={Hero} className="w-full h-full object-cover" />
+          <img
+            src={heroImage}
+            alt={
+              tourType === "DAY_TOUR"
+                ? "Sri Lanka Day Tours"
+                : tourType === "ROUND_TOUR"
+                ? "Sri Lanka Round Tours"
+                : "Sri Lanka Tours"
+            }
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
@@ -146,12 +188,19 @@ export default function Itineraries() {
           </span>
 
           <h1 className="text-4xl md:text-6xl font-black text-white mt-4">
-            Itineraries
+            {tourType === "DAY_TOUR"
+              ? "Day Tours"
+              : tourType === "ROUND_TOUR"
+              ? "Round Tours"
+              : "All Tours"}
           </h1>
 
           <p className="text-white/90 mt-6 max-w-2xl mx-auto text-lg">
-            Discover carefully crafted journeys across Sri Lanka designed for
-            unforgettable experiences.
+            {tourType === "DAY_TOUR"
+              ? "Discover unforgettable one-day experiences across Sri Lanka."
+              : tourType === "ROUND_TOUR"
+              ? "Explore multi-day journeys through Sri Lanka's most beautiful destinations."
+              : "Discover carefully crafted journeys across Sri Lanka designed for unforgettable experiences."}
           </p>
         </motion.div>
       </section>
@@ -161,16 +210,35 @@ export default function Itineraries() {
         {/* HEADER */}
         <div className="text-center mb-12">
           <span className="text-[#02878b] text-2xl md:text-3xl font-normal font-allura drop-shadow-lg">
-            Explore & Experience
+            {tourType === "DAY_TOUR"
+              ? "Explore & Discover"
+              : tourType === "ROUND_TOUR"
+              ? "Journey & Experience"
+              : "Explore & Experience"}
           </span>
 
           <h2 className="text-3xl md:text-5xl font-extrabold text-[#102a36] mt-2">
-            Curated Travel <span className="text-[#02878b]">Itineraries</span>
+            {tourType === "DAY_TOUR"
+              ? "Curated Day "
+              : tourType === "ROUND_TOUR"
+              ? "Curated Round "
+              : "Curated Travel "}
+
+            <span className="text-[#02878b]">
+              {tourType === "DAY_TOUR"
+                ? "Tours"
+                : tourType === "ROUND_TOUR"
+                ? "Tours"
+                : "Itineraries"}
+            </span>
           </h2>
 
           <p className="text-[#4b6b73] mt-4 max-w-2xl mx-auto leading-relaxed">
-            Explore thoughtfully designed travel plans combining scenic beauty,
-            culture, and adventure.
+            {tourType === "DAY_TOUR"
+              ? "Discover unforgettable one-day experiences featuring Sri Lanka's scenic beauty, culture, and adventure."
+              : tourType === "ROUND_TOUR"
+              ? "Explore thoughtfully planned multi-day journeys through Sri Lanka's most beautiful destinations."
+              : "Explore thoughtfully designed travel plans combining scenic beauty, culture, and adventure."}
           </p>
         </div>
 

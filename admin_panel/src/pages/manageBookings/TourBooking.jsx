@@ -3,7 +3,7 @@ import { axiosInstance } from "../../lib/axiosInstance";
 import toast from "react-hot-toast";
 import useAuthStore from "../../lib/authStore";
 
-import { FaCheckCircle, FaTimesCircle, FaEye, FaTasks} from "react-icons/fa";
+import { FaCheckCircle, FaTimesCircle, FaEye, FaTasks } from "react-icons/fa";
 
 export default function TourBooking() {
   const [bookings, setBookings] = useState([]);
@@ -234,21 +234,21 @@ export default function TourBooking() {
                 </tr>
               ) : filteredBookings.length === 0 ? (
                 <tr>
-                 <td colSpan="6" className="py-16 text-center">
-                      <div className="flex flex-col items-center justify-center">
-                        <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mb-3">
-                          <FaTasks className="w-5 h-5 text-slate-400" />
-                        </div>
-
-                        <p className="font-semibold text-[#172d35]">
-                          No bookings found
-                        </p>
-
-                        <p className="text-sm text-slate-500 mt-1">
-                        Try changing your search or filter.
-                        </p>
+                  <td colSpan="6" className="py-16 text-center">
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center mb-3">
+                        <FaTasks className="w-5 h-5 text-slate-400" />
                       </div>
-                    </td>
+
+                      <p className="font-semibold text-[#172d35]">
+                        No bookings found
+                      </p>
+
+                      <p className="text-sm text-slate-500 mt-1">
+                        Try changing your search or filter.
+                      </p>
+                    </div>
+                  </td>
                 </tr>
               ) : (
                 filteredBookings.map((b) => (
@@ -525,21 +525,32 @@ export default function TourBooking() {
 
                   <p className="p-3 border-b">{selectedBooking.booking_time}</p>
 
-                  {/* LOCATION */}
+                  {/* PICKUP LOCATION */}
+                  <p className="p-3 font-semibold text-[#172d35] bg-[#f4f8f9] border-b border-r">
+                    Pickup Location
+                  </p>
+
+                  <p className="p-3 border-b break-words">
+                    {selectedBooking.pickup_location || "Not provided"}
+                  </p>
+
+                  {/* LATITUDE */}
                   <p className="p-3 font-semibold text-[#172d35] bg-[#f4f8f9] border-b border-r">
                     Latitude
                   </p>
 
                   <p className="p-3 border-b">
-                    {selectedBooking.pickup_location_latitude}
+                    {selectedBooking.pickup_location_latitude ?? "Not provided"}
                   </p>
 
+                  {/* LONGITUDE */}
                   <p className="p-3 font-semibold text-[#172d35] bg-[#f4f8f9] border-b border-r">
                     Longitude
                   </p>
 
                   <p className="p-3 border-b">
-                    {selectedBooking.pickup_location_longitude}
+                    {selectedBooking.pickup_location_longitude ??
+                      "Not provided"}
                   </p>
 
                   {/* MESSAGE */}

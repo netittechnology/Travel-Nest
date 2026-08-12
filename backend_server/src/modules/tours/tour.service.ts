@@ -18,7 +18,7 @@ export class TourService {
         private readonly tourRepository: Repository<Tour>,
 
         private readonly fileUploadService: FileUploadService,
-    ) {}
+    ) { }
 
     async findTourById(tour_id: number): Promise<Tour> {
         const tour = await this.tourRepository
@@ -34,7 +34,7 @@ export class TourService {
             .getOne();
 
         if (!tour) {
-            throw new NotFoundException('Day-Tour not found');
+            throw new NotFoundException('Tour not found');
         }
 
         return tour;
@@ -48,7 +48,7 @@ export class TourService {
         });
 
         if (existingTour) {
-            throw new ConflictException('A Day-Tour with this title already exists');
+            throw new ConflictException('A Tour with this title already exists');
         }
 
         const uploadedImage = await this.fileUploadService.uploadFile(
@@ -98,7 +98,8 @@ export class TourService {
 
         const exactFilters = {
             is_available: query.is_available ?? undefined,
-        }
+            tour_type: query.tour_type ?? undefined,
+        };
 
         Object.entries(exactFilters).forEach(([key, value]) => {
             if (value !== undefined) {
@@ -136,7 +137,7 @@ export class TourService {
             });
 
             if (existingTour && tour.id !== existingTour.id) {
-                throw new ConflictException('A Day-Tour with this title already exists');
+                throw new ConflictException('A Tour with this title already exists');
             }
 
             tour.title = dto.title;
@@ -168,7 +169,8 @@ export class TourService {
             'duration',
             'includes',
             'highlights',
-            'itinerary_days'
+            'itinerary_days',
+            'tour_type',
         ] as const;
 
         for (const field of SCALAR_FIELDS) {

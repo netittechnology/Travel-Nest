@@ -1,5 +1,19 @@
-import { Transform, Type } from "class-transformer";
-import { IsBoolean, IsDateString, IsEmail, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, Max, MaxLength, Min, MinLength } from "class-validator";
+import { Transform, Type } from 'class-transformer';
+import {
+    IsBoolean,
+    IsDateString,
+    IsEmail,
+    IsInt,
+    IsNotEmpty,
+    IsNumber,
+    IsOptional,
+    IsString,
+    Matches,
+    Max,
+    MaxLength,
+    Min,
+    MinLength,
+} from 'class-validator';
 
 export class CreateTourBookingDto {
     @IsNotEmpty()
@@ -14,13 +28,12 @@ export class CreateTourBookingDto {
     @Transform(({ value }) => value.trim().toLowerCase())
     email!: string;
 
-    @IsOptional()
-    @IsString()
-    message?: string;
-
     @IsNotEmpty()
     @IsString()
-    @Matches(/^[+]?[0-9]{10,15}$/, { message: 'Phone number must contain 10 to 15 digits and may start with +' })
+    @Matches(/^[+]?[0-9]{10,15}$/, {
+        message:
+            'Phone number must contain 10 to 15 digits and may start with +',
+    })
     phone!: string;
 
     @IsNotEmpty()
@@ -29,7 +42,9 @@ export class CreateTourBookingDto {
 
     @IsNotEmpty()
     @IsString()
-    @Matches(/^([01]\d|2[0-3]):([0-5]\d)$/, { message: 'booking_time must be a valid time in HH:MM format' })
+    @Matches(/^([01]\d|2[0-3]):([0-5]\d)$/, {
+        message: 'booking_time must be a valid time in HH:MM format',
+    })
     booking_time!: string;
 
     @IsNotEmpty()
@@ -46,19 +61,32 @@ export class CreateTourBookingDto {
     @Type(() => Number)
     children_count!: number;
 
-    @IsNotEmpty()
+    // Pickup address/location
+    @IsOptional()
+    @IsString()
+    @MaxLength(500)
+    @Transform(({ value }) => value?.trim())
+    pickup_location?: string;
+
+    // OPTIONAL latitude
+    @IsOptional()
     @IsNumber()
     @Min(-90)
     @Max(90)
     @Type(() => Number)
-    pickup_location_latitude!: number;
+    pickup_location_latitude?: number;
 
-    @IsNotEmpty()
+    // OPTIONAL longitude
+    @IsOptional()
     @IsNumber()
     @Min(-180)
     @Max(180)
     @Type(() => Number)
-    pickup_location_longitude!: number;
+    pickup_location_longitude?: number;
+
+    @IsOptional()
+    @IsString()
+    message?: string;
 
     @IsNotEmpty()
     @Transform(({ value }) => {

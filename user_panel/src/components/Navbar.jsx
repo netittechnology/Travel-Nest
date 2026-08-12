@@ -63,8 +63,14 @@ export default function NormalNavbar({ user }) {
       { name: "HOME", to: "/" },
       { name: "DESTINATIONS", to: "/destinations" },
       { name: "CUSTOM TOURS", to: "/custom-tours" },
-      { name: "DAY TOURS", to: "/itineraries" },
-      { name: "ROUND TOURS", to: "/itineraries" },
+      {
+        name: "TOURS",
+        dropdown: [
+          { name: "ALL TOURS", to: "/itineraries" },
+          { name: "DAY TOURS", to: "/itineraries/day-tours" },
+          { name: "ROUND TOURS", to: "/itineraries/round-tours" },
+        ],
+      },
       { name: "HOTELS", to: "/hotels" },
       {
         name: "EXPLORE",

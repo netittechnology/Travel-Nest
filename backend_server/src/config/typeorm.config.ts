@@ -13,7 +13,7 @@ export const getTypeOrmConfig = (
   database: configService.get<string>('database.name'),
 
   autoLoadEntities: true,
-  synchronize: configService.get<string>('NODE_ENV') === 'development',
+  synchronize: false,
   logging: configService.get<string>('NODE_ENV') === 'testing',
 
   // Additional
