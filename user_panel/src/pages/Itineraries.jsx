@@ -320,6 +320,14 @@ export default function Itineraries({ tourType }) {
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-[#102a36]/70 via-transparent to-transparent opacity-70" />
+
+                    {/* CATEGORY / BADGE */}
+                    <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#02878b] text-white text-xs font-semibold shadow-md">
+                      {t.tour_type
+                        ?.replace(/_/g, " ")
+                        .toLowerCase()
+                        .replace(/\b\w/g, (char) => char.toUpperCase())} - {t.duration}
+                    </div>
                   </div>
 
                   {/* CONTENT */}
