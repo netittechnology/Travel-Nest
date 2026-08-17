@@ -1,5 +1,6 @@
 {
     "name": "admin_panel",
+    "homepage": "https://admin.tournestsrilanka.com",
     "private": true,
     "version": "0.0.0",
     "type": "module",
