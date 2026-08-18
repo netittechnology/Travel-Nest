@@ -37,11 +37,11 @@ export default () => ({
     },
 
     smtp: {
-        host: process.env.MAIL_HOST ?? 'smtp-relay.brevo.com',
+        host: process.env.MAIL_HOST ,
         port: parseInt(process.env.MAIL_PORT ?? '587'),
         user: process.env.MAIL_USER,
         password: process.env.MAIL_PASSWORD,
-        from: process.env.MAIL_FROM || 'exa <noreply@exa.com>',
+        from: process.env.MAIL_FROM ,
     },
 
     admin: {
