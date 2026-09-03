@@ -131,10 +131,10 @@ export default function Itineraries({ tourType }) {
       <Helmet>
         <title>
           {tourType === "DAY_TOUR"
-            ? "Sri Lanka Day Tours | Travel Nest"
+            ? "Sri Lanka Day Tours | Tour Nest"
             : tourType === "ROUND_TOUR"
-            ? "Sri Lanka Round Tours | Travel Nest"
-            : "Sri Lanka Tour Itineraries | Travel Nest"}
+            ? "Sri Lanka Round Tours | Tour Nest"
+            : "Sri Lanka Tour Itineraries | Tour Nest"}
         </title>
 
         <meta
@@ -152,10 +152,10 @@ export default function Itineraries({ tourType }) {
           rel="canonical"
           href={
             tourType === "DAY_TOUR"
-              ? "https://travelnest.com/itineraries/day-tours"
+              ? "https://tournestsrilanka.com/itineraries/day-tours"
               : tourType === "ROUND_TOUR"
-              ? "https://travelnest.com/itineraries/round-tours"
-              : "https://travelnest.com/itineraries"
+              ? "https://tournestsrilanka.com/itineraries/round-tours"
+              : "https://tournestsrilanka.com/itineraries"
           }
         />
       </Helmet>

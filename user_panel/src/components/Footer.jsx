@@ -23,11 +23,11 @@ export default function Footer() {
   const contact = {
     phone: "+94 77 123 4567",
     whatsapp: "+94 77 123 4567",
-    emails: ["info@travelnest.com"],
+    emails: ["info@tournest.com"],
     workingHours: { start: "08:00 AM", end: "10:00 PM" },
     offices: [
       {
-        name: "Travel Nest",
+        name: "Tour Nest",
         address: "Colombo 10",
       },
     ],
@@ -51,7 +51,7 @@ export default function Footer() {
 
     const phoneNumber = "94771234567";
 
-    const text = `Hello Travel Nest!
+    const text = `Hello Tour Nest!
 
 I would like to subscribe for travel deals and updates.
 
@@ -72,7 +72,7 @@ Subscriber Email: ${email}`;
           <div className="flex flex-col items-center justify-center text-center">
             {/* <img
               src={logo}
-              alt="Travel Nest Logo"
+              alt="Tour Nest Logo"
               className="h-40 w-40 object-contain"
             /> */}
 
@@ -84,7 +84,7 @@ Subscriber Email: ${email}`;
             </div>
 
             {/* BRAND NAME */}
-            <h2 className="text-2xl font-bold text-white">Travel Nest</h2>
+            <h2 className="text-2xl font-bold text-white">Tour Nest</h2>
 
             <p className="text-gray-300 text-sm leading-relaxed max-w-xs mt-3">
               Experience Sri Lanka like never before, curated journeys across
@@ -144,7 +144,7 @@ Subscriber Email: ${email}`;
                 <FaPhoneAlt className="text-[#02878b]" />
 
                 <a
-                  href={`sms:${contact.phone}?body=Hello%20Travel%20Nest,%20I%20am%20interested%20in%20your%20Sri%20Lanka%20tour%20packages.%20Could%20you%20please%20share%20more%20details%20regarding%20availability,%20pricing,%20and%20itineraries%3F%20Thank%20you.`}
+                  href={`sms:${contact.phone}?body=Hello%20Tour%20Nest,%20I%20am%20interested%20in%20your%20Sri%20Lanka%20tour%20packages.%20Could%20you%20please%20share%20more%20details%20regarding%20availability,%20pricing,%20and%20itineraries%3F%20Thank%20you.`}
                   className="hover:text-[#02878b] transition"
                 >
                   {contact.phone}
@@ -159,7 +159,7 @@ Subscriber Email: ${email}`;
                   href={`https://wa.me/${contact.whatsapp.replace(
                     /\D/g,
                     ""
-                  )}?text=Hello%20Travel%20Nest!%20I%E2%80%99m%20interested%20in%20your%20Sri%20Lanka%20tour%20packages.`}
+                  )}?text=Hello%20Tour%20Nest!%20I%E2%80%99m%20interested%20in%20your%20Sri%20Lanka%20tour%20packages.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#02878b] transition"
@@ -272,7 +272,7 @@ Subscriber Email: ${email}`;
             >
               Privacy Policy
             </a>{" "}
-            and consent to receive emails from Travel Nest.
+            and consent to receive emails from Tour Nest.
           </p>
         </div>
       </div>
@@ -282,7 +282,7 @@ Subscriber Email: ${email}`;
 
       {/* ================= COPYRIGHT ================= */}
       <div className="px-6 text-white font-medium text-xs md:text-sm flex flex-col sm:flex-row justify-between gap-2 relative z-10 pb-6">
-        <p>© {new Date().getFullYear()} Travel Nest. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Tour Nest. All rights reserved.</p>
 
         <p>Website Design & Development by NetIT Technology</p>
       </div>

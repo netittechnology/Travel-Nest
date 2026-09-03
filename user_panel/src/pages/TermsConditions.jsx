@@ -30,7 +30,7 @@ export default function TermsConditions() {
     {
       icon: <FiFileText />,
       title: "Introduction",
-      text: "By using Travel Nest services, you agree to comply with these Terms & Conditions. Please read them carefully before booking any tour or service.",
+      text: "By using Tour Nest services, you agree to comply with these Terms & Conditions. Please read them carefully before booking any tour or service.",
     },
     {
       icon: <FiCheckCircle />,
@@ -67,7 +67,7 @@ export default function TermsConditions() {
     {
       icon: <FiShield />,
       title: "Liability",
-      text: "Travel Nest is not responsible for personal loss, injury, delays, or damages caused during travel due to unforeseen circumstances.",
+      text: "Tour Nest is not responsible for personal loss, injury, delays, or damages caused during travel due to unforeseen circumstances.",
     },
     {
       icon: <FiGlobe />,
@@ -89,7 +89,7 @@ export default function TermsConditions() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Helmet>
-        <title>Terms & Conditions | Travel Nest</title>
+        <title>Terms & Conditions | Tour Nest</title>
       </Helmet>
 
       {/* HERO */}
@@ -154,7 +154,7 @@ export default function TermsConditions() {
             <div className="flex flex-col items-center gap-2">
               <FiMail className="text-green-600 text-2xl" />
               <p className="font-medium text-gray-700">Email</p>
-              <p className="text-gray-600">info@travelnest.com</p>
+              <p className="text-gray-600">info@tournest.com</p>
             </div>
 
             <div className="flex flex-col items-center gap-2">
@@ -173,7 +173,7 @@ export default function TermsConditions() {
 
         {/* FOOTER */}
         <div className="md:col-span-2 text-center text-sm text-gray-400 pt-6">
-          © {new Date().getFullYear()} Travel Nest. All rights reserved.
+          © {new Date().getFullYear()} Tour Nest. All rights reserved.
         </div>
       </div>
     </div>

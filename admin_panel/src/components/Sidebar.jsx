@@ -53,7 +53,7 @@ const AdminSidebar = () => {
 
           <div className="min-w-0">
             <h1 className="truncate text-base font-bold tracking-tight text-white">
-              Travel Nest
+              Tour Nest
             </h1>
             <p className="text-[11px] font-medium tracking-wide text-slate-400">
               ADMIN PANEL

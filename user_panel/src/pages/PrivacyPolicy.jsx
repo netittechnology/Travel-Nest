@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
     {
       icon: <FiShield />,
       title: "Introduction",
-      text: "Travel Nest respects your privacy and is committed to protecting your personal information while delivering safe and personalized travel experiences across Sri Lanka.",
+      text: "Tour Nest respects your privacy and is committed to protecting your personal information while delivering safe and personalized travel experiences across Sri Lanka.",
     },
     {
       icon: <FiDatabase />,
@@ -76,7 +76,7 @@ export default function PrivacyPolicy() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <Helmet>
-        <title>Privacy Policy | Travel Nest</title>
+        <title>Privacy Policy | Tour Nest</title>
       </Helmet>
 
       {/* HERO */}
@@ -141,7 +141,7 @@ export default function PrivacyPolicy() {
             <div className="flex flex-col items-center gap-2">
               <FiMail className="text-green-600 text-2xl" />
               <p className="font-medium text-gray-700">Email</p>
-              <p className="text-gray-600">info@travelnest.com</p>
+              <p className="text-gray-600">info@tournest.com</p>
             </div>
 
             <div className="flex flex-col items-center gap-2">
@@ -160,7 +160,7 @@ export default function PrivacyPolicy() {
 
         {/* FOOTER */}
         <div className="md:col-span-2 text-center text-sm text-gray-400 pt-6">
-          © {new Date().getFullYear()} Travel Nest. All rights reserved.
+          © {new Date().getFullYear()} Tour Nest. All rights reserved.
         </div>
       </div>
     </div>

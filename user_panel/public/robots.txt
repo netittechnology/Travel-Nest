@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://travelnest.com/sitemap.xml
+Sitemap: https://tournestsrilanka.com/sitemap.xml

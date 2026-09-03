@@ -107,7 +107,7 @@ export default function BlogDetails() {
     setContact({
       phone: "+94 11 234 5678",
       whatsapp: "+94771234567",
-      emails: ["info@travelnest.com"],
+      emails: ["info@tournest.com"],
     });
   }, []);
 
@@ -331,7 +331,7 @@ export default function BlogDetails() {
               <div className="space-y-3 text-sm">
                 {/* PHONE */}
                 <a
-                  href="sms:+94759990663?body=Hello%20Travel%20Nest,%20I%20would%20like%20to%20inquire%20about%20your%20tour%20packages.%20Please%20share%20more%20details.%20Thank%20you."
+                  href="sms:+94759990663?body=Hello%20Tour%20Nest,%20I%20would%20like%20to%20inquire%20about%20your%20tour%20packages.%20Please%20share%20more%20details.%20Thank%20you."
                   className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg hover:bg-gray-100"
                 >
                   <FaPhone className="text-[#02878b]" />
@@ -344,7 +344,7 @@ export default function BlogDetails() {
                   href={`https://wa.me/${"94707890663".replace(
                     /\D/g,
                     ""
-                  )}?text=Hello%20Travel%20Nest!%20I%E2%80%99m%20interested%20in%20your%20Sri%20Lanka%20tour%20packages.`}
+                  )}?text=Hello%20Tour%20Nest!%20I%E2%80%99m%20interested%20in%20your%20Sri%20Lanka%20tour%20packages.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 bg-[#f0fafa] p-3 rounded-lg hover:bg-[#e3f6f6]"
@@ -356,7 +356,7 @@ export default function BlogDetails() {
 
                 {/* EMAIL */}
                 <a
-                  href="mailto:info@travelnest.com"
+                  href="mailto:info@tournest.com"
                   className="flex items-center gap-2 bg-gray-50 p-3 rounded-lg hover:bg-gray-100"
                 >
                   <FaEnvelope className="text-gray-600" />

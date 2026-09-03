@@ -12,12 +12,12 @@ export default function Home() {
   return (
     <div>
       <Helmet>
-        <title>Travel Nest | Sri Lanka Travel & Tour Packages</title>
+        <title>Tour Nest | Sri Lanka Travel & Tour Packages</title>
         <meta
           name="description"
           content="Explore Sri Lanka with curated tours, beaches, safaris, culture, and custom travel experiences."
         />
-        <link rel="canonical" href="https://travelnest.com/" />
+        <link rel="canonical" href="https://tournestsrilanka.com/" />
       </Helmet>
       <Hero />
       <PopularDestinations />

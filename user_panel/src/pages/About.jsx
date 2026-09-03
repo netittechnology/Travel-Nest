@@ -30,14 +30,14 @@ export default function About() {
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#fafcfb]">
       <Helmet>
-        <title>About Us | Travel Nest</title>
+        <title>About Us | Tour Nest</title>
         <meta
           name="description"
-          content="Learn about Travel Nest, a trusted Sri Lanka travel company offering customized tours and travel experiences."
+          content="Learn about Tour Nest, a trusted Sri Lanka travel company offering customized tours and travel experiences."
         />
         <link
           rel="canonical"
-          href="https://travelnest.com/about"
+          href="https://tournestsrilanka.com/about"
         />
       </Helmet>
 
@@ -49,7 +49,7 @@ export default function About() {
           <img
             src={aboutHero}
             className="w-full h-full object-cover"
-            alt="About Travel Nest"
+            alt="About Tour Nest"
           />
 
           <div className="absolute inset-0 bg-black/60" />
@@ -69,7 +69,7 @@ export default function About() {
           </span>
 
           <h1 className="text-4xl md:text-6xl font-black text-white mt-4">
-            About Travel Nest
+            About Tour Nest
           </h1>
 
           <p className="text-white/90 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -97,7 +97,7 @@ export default function About() {
 
             <div className="mt-8 space-y-6 text-[#4b6b73] leading-relaxed text-justify">
               <p>
-                At Travel Nest, we are dedicated to crafting
+                At Tour Nest, we are dedicated to crafting
                 unforgettable travel experiences that showcase the true beauty,
                 culture, and diversity of Sri Lanka. Every journey is
                 thoughtfully designed to go beyond sightseeing and create

@@ -210,7 +210,7 @@ export default function Testimonials() {
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-[#60777d] md:text-base">
             Discover authentic experiences shared by travelers who explored Sri
-            Lanka with Travel Nest. From cultural adventures to scenic escapes,
+            Lanka with Tour Nest. From cultural adventures to scenic escapes,
             every journey is designed to be memorable.
           </p>
         </div>

@@ -101,7 +101,7 @@ export default function Experiences() {
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#fafcfb]">
       <Helmet>
-        <title>Travel Experiences | Travel Nest</title>
+        <title>Travel Experiences | Tour Nest</title>
       </Helmet>
 
       {/* =====================================================

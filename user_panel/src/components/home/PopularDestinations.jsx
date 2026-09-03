@@ -63,7 +63,7 @@ export default function PopularDestinations() {
             <p className="mt-5 text-sm md:text-base leading-relaxed text-[#4b6b73] max-w-2xl">
               Discover breathtaking places across Sri Lanka. From misty
               mountains and ancient cities to tropical beaches and wildlife
-              adventures, experience unforgettable journeys with Travel Nest.
+              adventures, experience unforgettable journeys with Tour Nest.
             </p>
           </motion.div>
 

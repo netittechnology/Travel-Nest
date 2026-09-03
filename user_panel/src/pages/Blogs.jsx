@@ -108,7 +108,7 @@ export default function Blogs() {
           SEO
       ===================================================== */}
       <Helmet>
-        <title>Travel Blog | Travel Nest</title>
+        <title>Travel Blog | Tour Nest</title>
 
         <meta
           name="description"
@@ -117,7 +117,7 @@ export default function Blogs() {
 
         <link
           rel="canonical"
-          href="https://travelnest.com/blog"
+          href="https://tournestsrilanka.com/blog"
         />
       </Helmet>
 

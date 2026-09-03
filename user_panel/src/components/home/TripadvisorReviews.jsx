@@ -8,7 +8,7 @@ const reviews = [
     country: "Malaysia",
     date: "February 2026",
     review:
-      "The Travel Nest team was extremely friendly, helpful, and knowledgeable. Everything was well-organized, making our Sri Lankan experience smooth and enjoyable.",
+      "The Tour Nest team was extremely friendly, helpful, and knowledgeable. Everything was well-organized, making our Sri Lankan experience smooth and enjoyable.",
   },
   {
     name: "Jane M",
@@ -52,7 +52,7 @@ export default function TripadvisorReviews() {
 
           <p className="mt-5 text-sm md:text-base leading-relaxed text-[#4b6b73] max-w-3xl">
             Discover what travelers have to say about their experiences with
-            Travel Nest. From cultural adventures to scenic escapes, we're proud
+            Tour Nest. From cultural adventures to scenic escapes, we're proud
             to create journeys worth remembering.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function TripadvisorReviews() {
               </div>
 
               <h3 className="text-3xl md:text-4xl font-bold text-[#102a36] mb-4">
-                Travel Nest
+                Tour Nest
               </h3>
 
               {/* Rating */}
@@ -100,7 +100,7 @@ export default function TripadvisorReviews() {
               </div>
 
               <p className="text-[#4b6b73] leading-relaxed mb-8">
-                At Travel Nest, we believe every journey should feel personal.
+                At Tour Nest, we believe every journey should feel personal.
                 Our carefully planned Sri Lanka tours combine authentic
                 experiences, beautiful destinations, reliable service, and
                 unforgettable moments.

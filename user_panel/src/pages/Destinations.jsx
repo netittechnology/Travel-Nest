@@ -139,14 +139,14 @@ export default function Destination() {
           SEO
       ===================================================== */}
       <Helmet>
-        <title>Explore Sri Lanka Destinations | Travel Nest</title>
+        <title>Explore Sri Lanka Destinations | Tour Nest</title>
 
         <meta
           name="description"
-          content="Explore the best destinations in Sri Lanka with Travel Nest. Discover beaches, mountains, wildlife, cultural heritage sites, and unforgettable places across the island."
+          content="Explore the best destinations in Sri Lanka with Tour Nest. Discover beaches, mountains, wildlife, cultural heritage sites, and unforgettable places across the island."
         />
 
-        <link rel="canonical" href="https://travelnest.com/destinations" />
+        <link rel="canonical" href="https://tournestsrilanka.com/destinations" />
       </Helmet>
 
       {/* =====================================================

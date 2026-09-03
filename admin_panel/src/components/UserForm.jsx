@@ -180,7 +180,7 @@ export default function UserForm({
         {/* FOOTER */}
         <div className="border-t border-slate-100 bg-slate-50 px-6 py-4 sm:px-8">
           <p className="text-center text-xs text-slate-400">
-            Administrator accounts have access to the Travel Nest management
+            Administrator accounts have access to the Tour Nest management
             panel.
           </p>
         </div>

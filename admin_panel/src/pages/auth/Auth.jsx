@@ -72,11 +72,11 @@ export default function Auth() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-bold uppercase tracking-wider w-fit backdrop-blur-md">
               <ShieldCheck size={14} className="text-cyan-200" />
-              <span>Travel Nest Admin</span>
+              <span>Tour Nest Admin</span>
             </div>
 
             <h2 className="text-2xl font-display font-bold uppercase tracking-wide">
-              Travel Nest
+              Tour Nest
             </h2>
 
             <p className="text-xs text-white/95 leading-relaxed font-light">
@@ -111,7 +111,7 @@ export default function Auth() {
 
             <div className="pt-2 text-left border-t border-white/10 mt-4">
               <p className="text-[10px] text-white/70 font-light">
-                © {new Date().getFullYear()} Travel Nest. All Rights Reserved.
+                © {new Date().getFullYear()} Tour Nest. All Rights Reserved.
               </p>
             </div>
           </motion.div>
@@ -127,7 +127,7 @@ export default function Auth() {
           <div className="flex items-center gap-2 mb-2">
             <ShieldCheck className="text-cyan-600" size={16} />
             <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">
-              Travel Nest
+              Tour Nest
             </span>
           </div>
           <h2 className="text-2xl font-display font-bold text-slate-800 uppercase mb-1">
@@ -197,7 +197,7 @@ export default function Auth() {
           </form>
 
           <p className="text-[9px] text-center text-slate-400 mt-4 font-light">
-            By continuing, you agree to Travel Nest Terms & Privacy Policy
+            By continuing, you agree to Tour Nest Terms & Privacy Policy
           </p>
         </motion.div>
       </div>
@@ -215,7 +215,7 @@ export default function Auth() {
           <div className="flex items-center gap-2 mb-2">
             <ShieldCheck className="text-cyan-600" size={16} />
             <span className="text-[10px] font-bold text-blue-600 uppercase tracking-widest">
-             Travel Nest
+             Tour Nest
             </span>
           </div>
           <h2 className="text-xl font-display font-bold text-slate-800 uppercase mb-1">
@@ -285,7 +285,7 @@ export default function Auth() {
           </form>
 
           <p className="text-[9px] text-center text-slate-400 mt-4 relative z-10 font-light">
-            By continuing, you agree to Travel Nest <a
+            By continuing, you agree to Tour Nest <a
                   href="/privacy-policy"
                   className="hover:text-[#02878b] transition"
                 >

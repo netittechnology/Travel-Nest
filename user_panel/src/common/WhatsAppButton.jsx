@@ -49,7 +49,7 @@ export default function WhatsAppFAB() {
 
   // ---------------- Messages ----------------
   const getMessage = (type) => {
-    const base = "*Travel Nest 🌴*\nSri Lanka Travel Experts";
+    const base = "*Tour Nest 🌴*\nSri Lanka Travel Experts";
 
     if (tourTitle) {
       if (type === "inquiry")
@@ -92,7 +92,7 @@ export default function WhatsAppFAB() {
               <FaWhatsapp className="text-white text-xl" />
             </div>
             <div>
-              <p className="font-semibold text-gray-800">Travel Nest</p>
+              <p className="font-semibold text-gray-800">Tour Nest</p>
               <p className="text-sm text-gray-500">Online | Fast Response</p>
             </div>
           </div>

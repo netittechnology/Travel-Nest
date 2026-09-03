@@ -38,7 +38,7 @@ export default function Contact() {
     const phoneNumber = "94707890663";
 
     const text = `
-Hello Travel Nest 🌴
+Hello Tour Nest 🌴
 
 Name: ${formData.name}
 Email: ${formData.email}
@@ -63,14 +63,14 @@ ${formData.message}
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#fafcfb]">
       <Helmet>
-        <title>Contact Us | Travel Nest</title>
+        <title>Contact Us | Tour Nest</title>
 
         <meta
           name="description"
-          content="Get in touch with Travel Nest for Sri Lanka tour bookings and travel inquiries."
+          content="Get in touch with Tour Nest for Sri Lanka tour bookings and travel inquiries."
         />
 
-        <link rel="canonical" href="https://travelnest.com/contact" />
+        <link rel="canonical" href="https://tournestsrilanka.com/contact" />
       </Helmet>
 
       {/* =====================================================
@@ -81,7 +81,7 @@ ${formData.message}
           <img
             src={Hero}
             className="w-full h-full object-cover"
-            alt="Contact Travel Nest"
+            alt="Contact Tour Nest"
           />
 
           <div className="absolute inset-0 bg-black/60" />
@@ -101,7 +101,7 @@ ${formData.message}
           </span>
 
           <h1 className="text-4xl md:text-6xl font-black text-white mt-4">
-            Contact Travel Nest
+            Contact Tour Nest
           </h1>
 
           <p className="text-white/90 mt-6 max-w-2xl mx-auto text-lg leading-relaxed">
@@ -142,7 +142,7 @@ ${formData.message}
         <div className="grid sm:grid-cols-2 gap-6 h-full">
           {/* PHONE */}
           <a
-            href="sms:+94759990663?body=Hello%20Travel%20Nest,%20I%20would%20like%20to%20know%20more%20about%20your%20tour%20packages.%20Please%20share%20the%20details.%20Thank%20you."
+            href="sms:+94759990663?body=Hello%20Tour%20Nest,%20I%20would%20like%20to%20know%20more%20about%20your%20tour%20packages.%20Please%20share%20the%20details.%20Thank%20you."
             className="block bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center h-full"
           >
             <FaPhoneAlt className="text-[#02878b] text-3xl mx-auto mb-4" />
@@ -154,7 +154,7 @@ ${formData.message}
 
           {/* WHATSAPP */}
           <a
-            href="https://wa.me/94707890663?text=Hello%20Travel%20Nest,%20I%20would%20like%20to%20know%20more%20about%20your%20tour%20packages.%20Please%20share%20the%20details.%20Thank%20you"
+            href="https://wa.me/94707890663?text=Hello%20Tour%20Nest,%20I%20would%20like%20to%20know%20more%20about%20your%20tour%20packages.%20Please%20share%20the%20details.%20Thank%20you"
             target="_blank"
             rel="noopener noreferrer"
             className="block bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center h-full"
@@ -170,14 +170,14 @@ ${formData.message}
 
           {/* EMAIL */}
           <a
-            href="mailto:info@travelnest.com?subject=Tour%20Inquiry&body=Hello%20Travel%20Nest,%0D%0A%0D%0AI%20would%20like%20to%20know%20more%20about%20your%20Sri%20Lanka%20tour%20packages.%20Please%20share%20the%20details.%0D%0A%0D%0AThank%20you."
+            href="mailto:info@tournest.com?subject=Tour%20Inquiry&body=Hello%20Tour%20Nest,%0D%0A%0D%0AI%20would%20like%20to%20know%20more%20about%20your%20Sri%20Lanka%20tour%20packages.%20Please%20share%20the%20details.%0D%0A%0D%0AThank%20you."
             className="block bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center h-full"
           >
             <FaEnvelope className="text-[#02878b] text-3xl mx-auto mb-4" />
 
             <h3 className="font-semibold text-[#102a36] text-lg mb-2">Email</h3>
 
-            <p className="text-[#4b6b73]">info@travelnest.com</p>
+            <p className="text-[#4b6b73]">info@tournest.com</p>
           </a>
 
           {/* ADDRESS */}
@@ -203,7 +203,7 @@ ${formData.message}
             </h3>
 
             <p className="text-[#4b6b73] mb-6 max-w-xl mx-auto">
-              Stay connected with Travel Nest for travel inspiration, Sri
+              Stay connected with Tour Nest for travel inspiration, Sri
               Lanka experiences, tour updates, and traveler stories.
             </p>
 
@@ -372,7 +372,7 @@ ${formData.message}
 
           <div className="rounded-2xl overflow-hidden shadow-xl border border-gray-100">
             <iframe
-              title="Travel Nest Location"
+              title="Tour Nest Location"
               src="https://www.google.com/maps?q=Colombo%2010%20Sri%20Lanka&output=embed"
               width="100%"
               height="450"

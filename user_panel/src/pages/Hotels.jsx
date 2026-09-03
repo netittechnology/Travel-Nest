@@ -116,14 +116,14 @@ export default function Hotels() {
   return (
     <div className="flex flex-col w-full min-h-screen bg-[#fafcfb]">
       <Helmet>
-        <title>Best Hotels in Sri Lanka | Travel Nest</title>
+        <title>Best Hotels in Sri Lanka | Tour Nest</title>
 
         <meta
           name="description"
           content="Find and book the best hotels across Sri Lanka for luxury and budget stays."
         />
 
-        <link rel="canonical" href="https://travelnest.com/hotels" />
+        <link rel="canonical" href="https://tournestsrilanka.com/hotels" />
       </Helmet>
 
       {/* =====================================================
