@@ -10,7 +10,7 @@ import {
   Headphones,
   X,
 } from "lucide-react";
-import hero from "../../assets/header/home-hero.png";
+import hero from "../../assets/header/home-hero.webp";
 import heroVideo from "../../assets/video.mp4";
 
 export default function Hero() {
@@ -42,17 +42,18 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* ================= HERO ================= */}
-      <div
-        className="relative min-h-screen bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${hero})`,
-        }}
-      >
+      <div  
+  className="relative min-h-screen bg-cover" 
+  style={{  
+    backgroundImage: `url(${hero})`, 
+    backgroundPosition: "center 80%", 
+  }}  
+>
         {/* LEFT CONTENT OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/10 to-transparent" />
 
         {/* TOP TEAL OVERLAY */}
-        <div className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-[#02878b]/60 via-[#02878b]/30 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-[45%] bg-gradient-to-b from-[#02878b]/40 via-[#02878b]/10 to-transparent" />
 
         {/* HERO CONTENT */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 min-h-screen flex items-center pt-24 pb-20">

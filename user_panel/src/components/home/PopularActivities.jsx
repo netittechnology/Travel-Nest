@@ -15,7 +15,7 @@ import {
   Umbrella,
   Compass,
 } from "lucide-react";
-import sigiriya from "../../assets/sigiriya.webp";
+import sigiriya from "../../assets/header/activity-hero.webp";
 
 const activities = [
   {
@@ -93,10 +93,13 @@ export default function PopularActivities() {
   return (
     <section
       className="relative overflow-hidden bg-cover bg-center py-12 lg:py-16"
-      style={{ backgroundImage: `url(${sigiriya})` }}
+      style={{ 
+        backgroundImage: `url(${sigiriya})`,
+        backgroundPosition: "center 70%", 
+       }}
     >
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-[#102a36]/80" />
+      <div className="absolute inset-0 bg-[#102a36]/60" />
 
       {/* TEAL GLOW */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#02878b]/30 via-transparent to-[#102a36]/50" />

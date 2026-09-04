@@ -1,6 +1,6 @@
 import React from "react";
 import { Star, ExternalLink, Quote, CheckCircle } from "lucide-react";
-import sigiriyaImg from "../../assets/sigiriya.webp";
+import sigiriyaImg from "../../assets/header/activity-hero.webp";
 
 const reviews = [
   {

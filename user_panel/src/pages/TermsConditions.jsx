@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import Hero from "../assets/header/terms-hero.jpg";
+import Hero from "../assets/header/terms-hero.webp";
 import { Helmet } from "react-helmet-async";
 import {
   FiFileText,

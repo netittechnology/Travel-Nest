@@ -134,7 +134,7 @@ export default function PopularDestinations() {
                 />
 
                 {/* OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#02878b]/80 via-[#02878b]/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#02878b]/50 via-[#02878b]/10 to-transparent" />
 
                 {/* RATING */}
                 {destination.rating && (

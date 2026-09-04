@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import mapImage from "../../src/assets/sri.webp";
-import aboutHero from "../../src/assets/header/about-hero.jpg";
+import aboutHero from "../../src/assets/header/about-hero.webp";
 import art from "../../src/assets/sigiriya-art.webp";
 import {
   FaMapMarkedAlt,
